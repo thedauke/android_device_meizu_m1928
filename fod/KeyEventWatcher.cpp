@@ -23,7 +23,7 @@ namespace lineage {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
-namespace V1_0 {
+namespace V1_1 {
 namespace implementation {
 
 static void *work(void *arg);
@@ -108,7 +108,7 @@ error:
 }
 
 }  // namespace implementation
-}  // namespace V1_0
+}  // namespace V1_1
 }  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics

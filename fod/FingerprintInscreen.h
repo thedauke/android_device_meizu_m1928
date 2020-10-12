@@ -24,7 +24,7 @@ namespace lineage {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
-namespace V1_0 {
+namespace V1_1 {
 namespace implementation {
 
 using ::android::sp;
@@ -33,7 +33,7 @@ using ::android::hardware::Void;
 using ::android::hardware::hidl_vec;
 
 using ::vendor::goodix::hardware::biometrics::fingerprint::V2_1::IGoodixFingerprintDaemon;
-
+using ::vendor::lineage::biometrics::fingerprint::inscreen::V1_0::IFingerprintInscreenCallback;
 class FingerprintInscreen : public IFingerprintInscreen {
   public:
     FingerprintInscreen();
@@ -52,6 +52,11 @@ class FingerprintInscreen : public IFingerprintInscreen {
     Return<void> setLongPressEnabled(bool enabled) override;
     Return<int32_t> getDimAmount(int32_t cur_brightness) override;
     Return<bool> shouldBoostBrightness() override;
+    Return<int32_t> getHbmOffDelay() override;
+    Return<int32_t> getHbmOnDelay() override;
+    Return<bool> supportsAlwaysOnHBM() override;
+    Return<void> switchHbm(bool enabled) override;
+    Return<bool> noDim() override;
     Return<void> setCallback(const sp<IFingerprintInscreenCallback>& callback) override;
 
   private:
@@ -62,6 +67,9 @@ class FingerprintInscreen : public IFingerprintInscreen {
 
     bool mIconShown;
     bool mFingerPressed;
+
+   //int32_t mHBMCheckOn;
+  // int32_t mHBMCheckOff;
 
     void notifyKeyEvent(int value);
     void notifyHal(int32_t cmd);

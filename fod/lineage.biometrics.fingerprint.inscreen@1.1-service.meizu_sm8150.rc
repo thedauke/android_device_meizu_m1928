@@ -1,5 +1,5 @@
-service fingerprint-inscreen-1-0 /system/bin/hw/lineage.biometrics.fingerprint.inscreen@1.1-service.meizu_sm8150
-    interface vendor.lineage.biometrics.fingerprint.inscreen@1.0::IFingerprintInscreen default
+service fingerprint-inscreen-1-1 /system/bin/hw/lineage.biometrics.fingerprint.inscreen@1.1-service.meizu_sm8150
+    interface vendor.lineage.biometrics.fingerprint.inscreen@1.1::IFingerprintInscreen default
     class hal
     user system
     group system input

@@ -4,8 +4,8 @@
  *
  */
 
-#ifndef VENDOR_LINEAGE_BIOMETRICS_FINGERPRINT_INSCREEN_V1_0_KEYEVENTWATCHER_H
-#define VENDOR_LINEAGE_BIOMETRICS_FINGERPRINT_INSCREEN_V1_0_KEYEVENTWATCHER_H
+#ifndef VENDOR_LINEAGE_BIOMETRICS_FINGERPRINT_INSCREEN_V1_1_KEYEVENTWATCHER_H
+#define VENDOR_LINEAGE_BIOMETRICS_FINGERPRINT_INSCREEN_V1_1_KEYEVENTWATCHER_H
 
 #include <functional>
 #include <string>
@@ -17,7 +17,7 @@ namespace lineage {
 namespace biometrics {
 namespace fingerprint {
 namespace inscreen {
-namespace V1_0 {
+namespace V1_1 {
 namespace implementation {
 
 using WatcherCallback = std::function<void(const std::string&, input_event)>;
@@ -38,11 +38,11 @@ class KeyEventWatcher {
 };
 
 }  // namespace implementation
-}  // namespace V1_0
+}  // namespace V1_1
 }  // namespace inscreen
 }  // namespace fingerprint
 }  // namespace biometrics
 }  // namespace lineage
 }  // namespace vendor
 
-#endif  // VENDOR_LINEAGE_BIOMETRICS_FINGERPRINT_INSCREEN_V1_0_KEYEVENTWATCHER_H
+#endif  // VENDOR_LINEAGE_BIOMETRICS_FINGERPRINT_INSCREEN_V1_1_KEYEVENTWATCHER_H

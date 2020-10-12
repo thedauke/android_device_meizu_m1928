@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "InscreenService"
+#define LOG_TAG "FingerprintInscreenService"
 
 #include "FingerprintInscreen.h"
 #include "KeyEventWatcher.h"
@@ -39,6 +39,8 @@
 #define DIMMING_SPEED_PATH "/sys/class/meizu/lcm/display/dimming_speed"
 #define HBM_ENABLE_PATH "/sys/class/meizu/lcm/display/hbm"
 #define BRIGHTNESS_PATH "/sys/class/backlight/panel0-backlight/brightness"
+#define HBM_OFF_DELAY 50
+#define HBM_ON_DELAY 250
 
 #define TOUCHPANAL_DEV_PATH "/dev/input/" FOD_INPUT
 
@@ -112,9 +114,33 @@ Return<void> FingerprintInscreen::onFinishEnroll() {
     return Void();
 }
 
+Return<int32_t> FingerprintInscreen::getHbmOffDelay() {
+    return HBM_OFF_DELAY;
+}
+
+Return<int32_t> FingerprintInscreen::getHbmOnDelay() {
+    return HBM_ON_DELAY;
+}
+
+Return<bool> FingerprintInscreen::supportsAlwaysOnHBM() {
+    return true;
+}
+
+Return<bool> FingerprintInscreen::noDim() {
+    return true;
+}
+
+Return<void> FingerprintInscreen::switchHbm(bool enabled) {
+    if (enabled) {
+        set(HBM_ENABLE_PATH, 1);
+    } else {
+        set(HBM_ENABLE_PATH, 0);
+    }
+    return Void();
+}
+
 Return<void> FingerprintInscreen::onPress() {
     mFingerPressed = true;
-    set(HBM_ENABLE_PATH, 1);
     set(DIMMING_SPEED_PATH, 1);
     set(BOOST_ENABLE_PATH, 1);
     std::thread([this]() {
@@ -128,7 +154,6 @@ Return<void> FingerprintInscreen::onPress() {
 
 Return<void> FingerprintInscreen::onRelease() {
     mFingerPressed = false;
-    set(HBM_ENABLE_PATH, 0);
     set(DIMMING_SPEED_PATH, 1);
     notifyHal(NOTIFY_FINGER_UP);
     return Void();
