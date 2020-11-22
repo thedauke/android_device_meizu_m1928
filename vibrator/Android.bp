@@ -14,9 +14,9 @@
 // limitations under the License.
 
 cc_binary {
-    name: "android.hardware.vibrator@1.2-service.meizu_sm8150",
+    name: "android.hardware.vibrator@1.2-service.meizu_m1928",
     relative_install_path: "hw",
-    init_rc: ["android.hardware.vibrator@1.2-service.meizu_sm8150.rc"],
+    init_rc: ["android.hardware.vibrator@1.2-service.meizu_m1928.rc"],
     srcs: ["service.cpp", "Vibrator.cpp"],
     cflags: ["-Wall", "-Werror", "-DMEIZU_HACK"],
     shared_libs: [

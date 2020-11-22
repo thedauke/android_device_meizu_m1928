@@ -13,8 +13,8 @@
 // limitations under the License.
 
 cc_binary {
-    name: "lineage.livedisplay@2.0-service-meizu_sm8150",
-    init_rc: ["lineage.livedisplay@2.0-service-meizu_sm8150.rc"],
+    name: "lineage.livedisplay@2.0-service-meizu_m1928",
+    init_rc: ["lineage.livedisplay@2.0-service-meizu_m1928.rc"],
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     srcs: [

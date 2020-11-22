@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#define LOG_TAG "android.hardware.vibrator@1.2-service.meizu_sm8150"
+#define LOG_TAG "android.hardware.vibrator@1.2-service.meizu_m1928"
 
 #include <android-base/logging.h>
 #include <hidl/HidlTransportSupport.h>

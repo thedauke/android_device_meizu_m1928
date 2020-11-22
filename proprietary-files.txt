@@ -73,3 +73,10 @@ etc/sysconfig/qti_whitelist.xml
 framework/QtiTelephonyServicelibrary.jar
 framework/qcrilhook.jar
 framework/qti-telephony-common.jar|b1953a3599255f08f1785c677d22810f65e0167b
+
+# Charger
+sbin/charger:bin/charger
+
+# Display
+lib64/vendor.display.color@1.0.so
+product/lib64/libsdm-disp-apis.qti.so

@@ -1,10 +1,10 @@
-package sm8150
+package m1928
 
 import (
     "android/soong/android"
 )
 
 func init() {
-    android.RegisterModuleType("meizu_sm8150_fod_hal_binary", fodHalBinaryFactory)
-    android.RegisterModuleType("meizu_sm8150_light_hal_binary", lightHalBinaryFactory)
+    android.RegisterModuleType("meizu_m1928_fod_hal_binary", fodHalBinaryFactory)
+    android.RegisterModuleType("meizu_m1928_light_hal_binary", lightHalBinaryFactory)
 }

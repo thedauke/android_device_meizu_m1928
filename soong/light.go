@@ -1,4 +1,4 @@
-package sm8150
+package m1928
 
 import (
     "android/soong/android"
@@ -9,7 +9,7 @@ import (
 func lightFlags(ctx android.BaseContext) []string {
     var cflags []string
 
-    var config = ctx.AConfig().VendorConfig("MEIZU_SM8150_LIGHT")
+    var config = ctx.AConfig().VendorConfig("MEIZU_M1928_LIGHT")
     var mxLedPath = strings.TrimSpace(config.String("MX_LED_PATH"))
 
     cflags = append(cflags, "-DLIGHT_MX_LED_PATH=\"" + mxLedPath + "\"")

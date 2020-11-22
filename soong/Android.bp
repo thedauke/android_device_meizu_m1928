@@ -1,6 +1,6 @@
 bootstrap_go_package {
-    name: "soong-meizu-sm8150-plugins",
-    pkgPath: "device/meizu/sm8150-common",
+    name: "soong-meizu-m1928-plugins",
+    pkgPath: "device/meizu/m1928",
     deps: [
         "blueprint",
         "blueprint-pathtools",

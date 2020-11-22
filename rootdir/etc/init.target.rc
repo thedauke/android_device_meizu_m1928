@@ -1,0 +1,33 @@
+import /init.target.rc
+
+on init
+    mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio/audio_policy_configuration.xml bind
+    mount none /system/etc/a2dp_audio_policy_configuration.xml /vendor/etc/a2dp_audio_policy_configuration.xml bind
+
+service charger.meizu /system/bin/charger
+    class charger
+    group system graphics
+    seclabel u:r:charger:s0
+
+on init
+    chown system system /sys/class/leds/mx-led/blink
+    chown system system /sys/class/leds/mx-led/brightness
+
+on early-fs
+    mount none /system/etc/vendor_fstab.qcom /vendor/etc/fstab.qcom bind
+
+on post-fs
+    mount none /system/etc/vendor_manifest.xml /vendor/etc/vintf/manifest.xml bind
+
+on post-fs-data
+    mkdir /data/local/tmp/logs 0775 system system
+    rm /data/local/tmp/logs/log
+    start persistentLogging
+
+on property:sys.boot_completed=1
+    stop persistentLogging
+
+service persistentLogging /system/bin/logcat -f /data/local/tmp/logs/log
+    user system
+    group root system log
+    disabled
